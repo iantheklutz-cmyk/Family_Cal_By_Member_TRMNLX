@@ -57,19 +57,28 @@ For **each** calendar you'll use:
 | `HOLIDAYS_ICAL_URL` | no | a public holiday iCal feed URL | Overrides the default US holiday feed — Google publishes one per country (e.g. search "Google Calendar `en.uk#holiday`"). |
 | `WEATHER_PROVIDER` | no | `nws` \| `open-meteo` \| `none` | Overrides auto-detection (NWS for US coordinates, Open-Meteo elsewhere). See "Weather" below. |
 
-4. Deploy. Visit `https://<your-val>.web.val.run?key=<FEED_SECRET>` in a
-   browser — you should get a JSON payload. If instead you get
-   `{"error":"config_error","message":"..."}`, the message tells you exactly
-   which env var is missing or invalid.
+4. Deploy. Val Town shows your val's real URL at the top of its page — it
+   looks like `https://yourusername--somehexid.web.val.run`. Take that real
+   URL and add `?key=` plus your actual `FEED_SECRET` value straight onto the
+   end, no spaces, no brackets. For example, if your val's URL were
+   `https://jsmith--a1b2c3.web.val.run` and you set `FEED_SECRET` to
+   `f9e8d7c6b5a4`, the address you'd actually visit is:
+   `https://jsmith--a1b2c3.web.val.run?key=f9e8d7c6b5a4`.
+   Paste your own version of that into a browser tab — you should get a JSON
+   payload back. If instead you get `{"error":"config_error","message":"..."}`,
+   the message tells you exactly which env var is missing or invalid.
 
 ## Step 3 — Create the TRMNL plugin
 
 1. In TRMNL, create a new **Private Plugin**.
 2. Strategy: **Polling**, verb **GET**.
-3. Polling URL: `https://<your-val>.web.val.run?key=<FEED_SECRET>` — same
-   URL you tested in Step 2. (You can instead send the secret as an
-   `Authorization: Bearer <FEED_SECRET>` polling header and drop `?key=...`
-   from the URL, if you'd rather not have the secret in the URL at all.)
+3. Polling URL: the exact same real URL (with your real `?key=...` value
+   filled in) that you just tested and confirmed working in Step 2 — not a
+   copy-pasted template with brackets still in it. (You can instead send the
+   secret as an `Authorization: Bearer <FEED_SECRET>` polling header and drop
+   `?key=...` from the URL, if you'd rather not have the secret in the URL at
+   all — same substitution rule applies: replace the whole
+   `<FEED_SECRET>` placeholder with your real value, brackets included.)
 4. Refresh rate: `3600` (1 hour) is a sensible default — matches the
    Open-Meteo cache window (see Weather below).
 5. Paste [`src/full.liquid`](src/full.liquid) into the **Full** view. Leave
