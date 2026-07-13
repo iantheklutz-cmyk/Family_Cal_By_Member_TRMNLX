@@ -1,0 +1,12 @@
+---
+name: Family Calendar
+refresh_rate: "3600"
+strategy: polling
+dark_mode: "no"
+no_screen_padding: "yes"
+polling_verb: get
+# Copy this file to settings.yml and replace <VAL_TOWN_URL> and <FEED_SECRET>
+# with your own deployed Val Town URL and the FEED_SECRET you set as an env
+# var on your val (see SETUP.md). settings.yml is gitignored because the
+# secret lives directly in this URL -- never commit your real settings.yml.
+polling_url: "https://<VAL_TOWN_URL>.web.val.run?key=<FEED_SECRET>"

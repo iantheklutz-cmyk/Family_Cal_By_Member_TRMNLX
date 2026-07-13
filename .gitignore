@@ -1,0 +1,5 @@
+node_modules/
+
+# Contains the live polling URL with the FEED_SECRET query param -- never commit.
+# Copy src/settings.example.yml to src/settings.yml and fill in the real values.
+src/settings.yml

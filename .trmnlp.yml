@@ -1,0 +1,9 @@
+# Local dev config for trmnlp.
+# Live calendar/weather data comes from the polling_url in src/settings.yml.
+# Nothing needs to change here to get started.
+
+# Enables the file watcher -> live-reload SSE stream, so localhost:4567
+# auto-refreshes the preview iframe on save instead of requiring a manual
+# browser refresh (or a paste into the TRMNL cloud editor).
+watch:
+  - src
