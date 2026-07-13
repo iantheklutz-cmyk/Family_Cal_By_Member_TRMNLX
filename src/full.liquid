@@ -54,7 +54,6 @@ html, body{ margin:0 !important; padding:0 !important; background:#fff !importan
 .cal-root .evt .t{ font-size:11px; color:var(--muted); font-weight:600; margin-right:3px; }
 .cal-root .is-today{ background:var(--today); }
 .cal-root .is-today .dnum{ font-weight:700; }
-.cal-root .tag-dot{ display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:4px; vertical-align:middle; }
 .cal-root .span-bar{ position:absolute; box-sizing:border-box; width:20px; border:1.3px solid #111; background:#f2f2f2; border-radius:3px; display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; transform:rotate(180deg); font-size:12.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; overflow:hidden; padding:4px 2px; z-index:2; }
 
 .cal-root .row.has-holiday{ grid-template-rows:auto 1fr; }
@@ -337,7 +336,7 @@ html, body{ margin:0 !important; padding:0 !important; background:#fff !importan
               {%- elsif e_lower contains 'visiting' or e_lower contains 'in town' or e_lower contains 'guests' -%}{%- assign cell_sticker_icon = ic_visit -%}
               {%- endif -%}
             {%- endif -%}
-          <div class="evt">{% if e[2] and e[2] != '' %}<span class="tag-dot" style="background:{{ e[2] }};"></span>{% endif %}{% if e[0] and e[0] != '' %}<span class="t">{{ e[0] }}</span>{% endif %}{{ e[1] }}</div>
+          <div class="evt">{% if e[0] and e[0] != '' %}<span class="t">{{ e[0] }}</span>{% endif %}{{ e[1] }}</div>
             {%- endif -%}
           {%- endfor -%}
           {%- if is_span_start -%}
