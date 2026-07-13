@@ -8,6 +8,11 @@ automatically.
 
 ![Family Calendar preview](docs/screenshot.png)
 
+**[Install this plugin on TRMNL →](https://trmnl.com/recipes/379734)** (you'll
+still need to deploy your own free backend first — see [SETUP.md](SETUP.md),
+about 20-30 minutes, no coding required, just copy/paste and filling in a
+few values.)
+
 ## Features
 
 - **Rolling 14-day view** starting today, with a full-width band whenever the
